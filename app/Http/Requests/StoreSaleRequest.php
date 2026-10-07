@@ -14,7 +14,7 @@ class StoreSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'employee_id' => 'nullable|integer|exists:employee,employee_id',
+            
             'sale_date' => 'required|date',
         ];
     }

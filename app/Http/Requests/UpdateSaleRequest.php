@@ -14,7 +14,7 @@ class UpdateSaleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'employee_id' => 'sometimes|nullable|integer|exists:employee,employee_id',
+            
             'sale_date' => 'sometimes|required|date',
         ];
     }

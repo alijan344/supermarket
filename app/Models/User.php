@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use App\Models\Employee;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
+
     protected $table = 'users';
 
     protected $primaryKey = 'employee_id';
@@ -24,6 +28,10 @@ class User extends Model
 
     protected $hidden = [
         'password',
+    ];
+
+    protected $casts = [
+        'password' => 'hashed',
     ];
 
     public function employee()
